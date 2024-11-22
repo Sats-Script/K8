@@ -10,12 +10,12 @@ spec:
  replicas: 1
  selector:
    matchlabels:
-      tier: mysql-db
+      tier: mysqldb
       project: minipro
   template:
     metadata:
       labels:
-        tier: mysql-db
+        tier: mysqldb
         project: minipro
     spec:
       containers:
