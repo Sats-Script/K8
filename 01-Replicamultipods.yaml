@@ -18,8 +18,8 @@ spec:
      labels:            # Pod labels
       tier: frontend
       app: nginx
-  spec:
-   containers:
+    spec:
+     containers:
     - name: nginx
       image: nginx
       
