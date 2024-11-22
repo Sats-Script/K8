@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: mysql
+ namespace: smallproject-3 
+ labels:  
+  project: minipro
+  environment: dev
+spec:
+ replicas: 1
+ selector:
+   matchlabels:
+      tier: mysql-db
+      project: minipro
+  template:
+    metadata:
+      labels:
+        tier: mysql-db
+        project: minipro
+    spec:
+      containers:
+      - name: mysql
+        image: joindevops/mysql:v1
+
+
