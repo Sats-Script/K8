@@ -37,10 +37,10 @@ spec:
    tier: frontend
    app: nginx
  ports:
-  - name: nginx-service
-    protocol: TCP
-    port: 80
-    targetport: 80
+ - name: nginx-service
+   protocol: TCP
+   port: 80
+   targetport: 80
 
 
       
