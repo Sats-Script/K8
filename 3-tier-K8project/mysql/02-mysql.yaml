@@ -22,4 +22,21 @@ spec:
       - name: mysql
         image: joindevops/mysql:v1
 
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+ name: mysqlcon
+ namespace: smallproject-3
+spec:
+ selector:
+   tier: mysql-db
+   project: minipro
+  ports:
+  - name: mysql-port
+    protocol: TCP
+    port: 3306
+    targetPort: 3306
+
 
