@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: frontend
+ namespace: smallproject-3 
+ labels:  
+  project: minipro
+  environment: dev
+spec:
+ replicas: 1
+ selector:
+   matchLabels:
+      tier: frontend
+      project: minipro
+ template:
+   metadata:
+      labels:
+        tier: frontend
+        project: minipro
+   spec:
+      containers:
+      - name: frontend
+        image: joindevops/frontend:v1
+       
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+ name: frontend
+ namespace: smallproject-3
+spec:
+ type: LoadBalancer
+ selector:
+   tier: frontend
+   project: minipro
+ ports:
+ - name: frontend-port
+   protocol: TCP
+   port: 80
+   targetPort: 80
+
+
