@@ -12,8 +12,8 @@ spec:
    matchlabels:
       tier: mysqldb
       project: minipro
-  template:
-    metadata:
+ template:
+   metadata:
       labels:
         tier: mysqldb
         project: minipro
