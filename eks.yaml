@@ -1,0 +1,12 @@
+apiversion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+ name: expense
+ region: us-east-1
+
+manageNodeGroups:
+ - name: expense
+   instancetype: m5.large
+   desiredcapacity: 3
+   spot: true
