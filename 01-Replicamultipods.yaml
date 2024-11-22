@@ -13,11 +13,11 @@ spec:
     tier: frontend
     app: nginx
 
-template:  #/pod template
-  metadata:
-   labels:            # Pod labels
-    tier: frontend
-    app: nginx
+  template:  #/pod template
+    metadata:
+     labels:            # Pod labels
+      tier: frontend
+      app: nginx
   spec:
    containers:
     - name: nginx
