@@ -9,13 +9,13 @@ metadata:
 spec:
  replicas: 1
  selector:
-   matchlabels:
-      tier: mysqldb
+   matchLabels:
+      tier: mysql-db
       project: minipro
  template:
    metadata:
       labels:
-        tier: mysqldb
+        tier: mysql-db
         project: minipro
    spec:
       containers:
