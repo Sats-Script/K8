@@ -17,7 +17,7 @@ spec:
       labels:
         tier: mysqldb
         project: minipro
-    spec:
+   spec:
       containers:
       - name: mysql
         image: joindevops/mysql:v1
