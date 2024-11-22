@@ -33,10 +33,10 @@ spec:
  selector:
    tier: mysql-db
    project: minipro
-  ports:
-  - name: mysql-port
-    protocol: TCP
-    port: 3306
-    targetPort: 3306
+ ports:
+ - name: mysql-port
+   protocol: TCP
+   port: 3306
+   targetPort: 3306
 
 
