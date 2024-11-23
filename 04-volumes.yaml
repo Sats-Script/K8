@@ -28,22 +28,22 @@ spec:
    volumeHandle: vol-04925d639e864b6fc              #volumeid in aws
 ---
 
-# apiversion: v1                    #pods has to claim PV
-# kind: PersistentVolumeClaim
-# metadata:
-#   name: 
+apiversion: v1                    #pods has to claim PV
+kind: PersistentVolumeClaim
+metadata:
+  name: ebs-static
 
-# spec:
-#   storageClassName: ""    # Should be empty in static provisioning
-#   volumeName:            #PV name
-#   accessModes:
-#     - ReadWriteOnce
-#   resources:
-#    requests:
-#     storage:             #same as or below PV storage
+spec:
+  storageClassName: ""    # Should be empty in static provisioning
+  volumeName: ebs-static           #PV name
+  accessModes:
+    - ReadWriteOnce
+  resources:
+   requests:
+    storage: 5Gi             #same as or below PV storage
 
-# #kubectl get pvc  - status should be bound means pvc attached to pv or claim is successful
-# #kubectl describe pv   / pvc
+#kubectl get pvc  - status should be bound means pvc attached to pv or claim is successful
+#kubectl describe pv   / pvc
 # ---
 
 # apiversion: v1
