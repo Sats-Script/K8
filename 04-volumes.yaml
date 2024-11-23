@@ -13,7 +13,7 @@
 
 #Retain policy 
 
-apiversion: v1            #creating PVolume in k8 cluster environment
+apiVersion: v1            #creating PVolume in k8 cluster environment
 kind: PersistentVolume
 metadata:                                                  #vol id : vol-04925d639e864b6fc
   name: ebs-static
