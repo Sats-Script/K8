@@ -50,6 +50,8 @@ apiVersion: v1
 kind: Pod
 metadata: 
   name: ebs-static
+  labels: 
+   name: check
 spec:
   nodeSelector:
     topology.kubernetes.io/zone: us-east-1c
@@ -67,4 +69,19 @@ spec:
 
  #kubectl get pod -o wide
 #kubectl get nodes --show-labels
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+ name: nginxlb
+spec:
+ type: LoadBalancer
+ selector:
+   name: check
+ ports:
+ - name: nginx-svc-port
+   protocol: TCP
+   port: 80
+   targetPort: 80
 
