@@ -47,7 +47,7 @@ spec:
 ---
 
 apiVersion: v1
-kind: pod
+kind: Pod
 metadata: 
   name: ebs-static
 spec:
