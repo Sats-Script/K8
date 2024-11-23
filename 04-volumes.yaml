@@ -28,7 +28,7 @@ spec:
    volumeHandle: vol-04925d639e864b6fc              #volumeid in aws
 ---
 
-apiversion: v1                    #pods has to claim PV
+apiVersion: v1                    #pods has to claim PV
 kind: PersistentVolumeClaim
 metadata:
   name: ebs-static
