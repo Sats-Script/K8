@@ -25,7 +25,7 @@ spec:
  csi:
    driver: ebs.csi.aws.com
    fsType: ext4            #disktypes file system , related to storage
-   VolumeHandle: vol-04925d639e864b6fc              #volumeid in aws
+   volumeHandle: vol-04925d639e864b6fc              #volumeid in aws
 ---
 
 # apiversion: v1                    #pods has to claim PV
