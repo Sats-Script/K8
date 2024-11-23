@@ -44,26 +44,27 @@ spec:
 
 #kubectl get pvc  - status should be bound means pvc attached to pv or claim is successful
 #kubectl describe pv   / pvc
-# ---
+---
 
-# apiversion: v1
-# kind: pod
-# metadata: 
-#   name:
-# spec:
-#   nodeselector:
-#     topology.kubernetes.io/zone: us-east-1d
-#   containers:
-#   - name: nginx
-#     image: nginx
-#     volumeMounts:
-#     - name:
-#       mountPath:
-#   volumes:
-#   - name:
-#     persistantVolumeClaim:
+apiVersion: v1
+kind: pod
+metadata: 
+  name: ebs-static
+spec:
+  # nodeselector:
+  #   topology.kubernetes.io/zone: us-east-1c
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: ebs-static
+      mountPath: /usr/share/nginx/html
+  volumes:
+  - name: ebs-static
+    persistantVolumeClaim: 
+      claimName: ebs-static
 
 
-# #kubectl get pod -o wide
-# #kubectl get nodes --show-labels
+ #kubectl get pod -o wide
+#kubectl get nodes --show-labels
 
