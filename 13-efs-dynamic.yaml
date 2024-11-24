@@ -3,7 +3,7 @@ kind: StorageClass
 metadata:
  name: efs-dyna
 provisioner: efs.csi.aws.com
-reclaimPolicy: Retain
+#reclaimPolicy: Retain
 parameters:
  provisioningMode: efs-ap
  fileSystemId: fs-01872f2b9a0d72611
