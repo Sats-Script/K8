@@ -1,0 +1,19 @@
+#EFS is elastic file system
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+ name: efs-static
+ reclaimPolicy: Retain
+spec:
+ capacity: 
+  storage: 5Gi
+volumeMode: Filesystem
+ accessmodes:
+ - ReadWriteOnce
+storageClassName: 
+csi:
+ driver: efs.csi.aws.com
+ volumeHandle: fs-01872f2b9a0d72611
+
+  
