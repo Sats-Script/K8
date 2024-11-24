@@ -9,3 +9,53 @@ parameters:
  fileSystemId: fs-01872f2b9a0d72611
  basepath: "/expense"
 
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+ name: efs-pvc-dyna
+spec:
+ storageClassName: "efs-dyna"
+ accessModes:
+ - ReadWriteMany
+ resources:
+  requests:
+   storage: 5Gi
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+ name: efs-dyn-pod
+ labels:
+  name: check-dyno
+spec:
+ containers:
+ - name: nginx
+   image: nginx
+   volumeMounts:
+   - name: efs-dyna
+     mountPath: /usr/share/nginx/html
+ volumes:
+  name: efs-dyna
+  persistentVolumeClaim:
+   claimName: efs-pvc-dyna
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+ name: efs-svc
+spec:
+ selector:
+  name: check-dyno
+ ports:
+ - name: nginx-svc
+   protocol: TCP
+   ports: 80
+   targetPorts: 80
+   nodePort: 30007
+
