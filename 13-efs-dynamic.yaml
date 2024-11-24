@@ -39,9 +39,9 @@ spec:
    - name: efs-dyna
      mountPath: /usr/share/nginx/html
  volumes:
-  name: efs-dyna
-  persistentVolumeClaim:
-   claimName: efs-pvc-dyna
+ - name: efs-dyna
+   persistentVolumeClaim:
+    claimName: efs-pvc-dyna
 
 ---
 
@@ -55,7 +55,7 @@ spec:
  ports:
  - name: nginx-svc
    protocol: TCP
-   ports: 80
-   targetPorts: 80
+   port: 80
+   targetPort: 80
    nodePort: 30007
 
