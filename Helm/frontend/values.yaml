@@ -2,5 +2,6 @@ horizantalpodauto:
  cpu: 10
 deployment:
  replicas: 2
- imageVersion: frontend:v1
+ repository: frontend
+ imageVersion: v1
  
