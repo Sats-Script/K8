@@ -65,7 +65,7 @@ spec:
 ---
 
 apiVersion: autoscaling/v1
-kind: HorizantalPodAutoscaler
+kind: horizantalPodAutoscaler
 metadata:
  name: hpa-demo
  namespace: smallproject-3
