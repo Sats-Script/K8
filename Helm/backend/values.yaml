@@ -1,0 +1,7 @@
+horizantalpodauto:
+ cpu: 10
+deployment:
+ replicas: 2
+ imageVersion: v1
+ configmap:
+  name: backend
