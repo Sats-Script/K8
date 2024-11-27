@@ -2,7 +2,6 @@
 
 deployment:
   replicas: 2
-  repository: frontend
   imageVersion: v1
 
 horizontalpodauto:

@@ -20,7 +20,7 @@ spec:
    spec:
       containers:
       - name: frontend
-        image: joindevops/{{ .Values.deployment.repository }}:{{ .Values.deployment.imageVersion }}
+        image: joindevops/frontend:{{ .Values.deployment.imageVersion }}
         resources:
          requests:
           cpu: 100m
