@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
  name: mysql
- namespace: Helmdemoproject-3 
+ namespace: helmdemoproject-3 
  labels:  
   project: minipro
   environment: dev
