@@ -62,5 +62,21 @@ spec:
    port: 8080
    targetPort: 8080
 
+---
+
+apiVersion: autoscaling/v1
+kind: HorizantalPodAutoscaler
+metadata:
+ name: hpa-demo
+ namespace: smallproject-3
+spec:
+ scaleTargetRef:
+  apiVersion: apps/v1
+  kind: Deployment
+  name: nodejsbackend
+ minReplicas: 1
+ maxReplicas: 10
+ targetCPUUtilizationPercentage: 10 #usually 75 in real environment
+ 
 
   
