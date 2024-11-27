@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata: 
+ name: Helmdemoproject-3
+ labels:
+   project: minipro
+   environment: dev
