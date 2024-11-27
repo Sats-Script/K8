@@ -1,7 +1,9 @@
-horizantalpodauto:
- cpu: 10
+# values.yaml
+
 deployment:
- replicas: 2
- repository: frontend
- imageVersion: v1
- 
+  replicas: 2
+  repository: frontend
+  imageVersion: v1
+
+horizontalpodauto:
+  cpu: 10
