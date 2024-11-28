@@ -1,0 +1,12 @@
+apiversion: v1
+kind: pod
+metadata: 
+  name: nginx
+  labels:
+      namespace:
+spec: 
+ containers:   
+
+ #docker run -d --name nginx
+ - name: 
+   image:

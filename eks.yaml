@@ -9,4 +9,4 @@ managedNodeGroups:
  - name: expense
    instancetype: m5.large
    desiredcapacity: 3
-   spot: true
+   spot: true  # must not used for Deployment environment
