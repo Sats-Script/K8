@@ -11,6 +11,10 @@ data:
     - trainee
     userarn: arn:aws:iam::535002894938:user/Satti
     username: Satti
+  - groups:
+    - admin
+    userarn: arn:aws:iam::535002894938:user/Hari
+    username: Hari
 kind: ConfigMap
 metadata:
   creationTimestamp: "2024-11-29T06:01:03Z"
