@@ -56,7 +56,7 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
- name: expense-admin
+ name: nsadmin
  rules:
 - apiGroups: ["rbac.authorization.k8s.io"]
   resources: ["nodes","persistentvolumes","namespaces"]
