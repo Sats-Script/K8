@@ -2,11 +2,8 @@ apiversion: v1
 kind: pod
 metadata: 
   name: nginx
-  labels:
-      namespace:
+  namespace: helmdemoproject-3
 spec: 
  containers:   
-
- #docker run -d --name nginx
- - name: 
-   image:
+ - name: nginx
+   image: nginx
