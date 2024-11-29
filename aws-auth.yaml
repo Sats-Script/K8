@@ -1,0 +1,22 @@
+apiVersion: v1
+data:
+ mapRoles:
+  - groups:
+    - system:bootstrappers
+    - system:nodes
+    rolearn: arn:aws:iam::535002894938:role/eksctl-expense-nodegroup-expense-NodeInstanceRole-zbuTnitt5K5h
+    username: system:node:{{EC2PrivateDNSName}}
+ mapUsers:
+  - groups:
+    - trainee
+    userarn: arn:aws:iam::535002894938:user/Satti
+    username: Satti
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2024-11-29T06:01:03Z"
+  name: aws-auth
+  namespace: kube-system
+  uid: e2bf186d-1cc5-4b9b-98d1-1bb27adfa868
+
+    
+ 
