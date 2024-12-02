@@ -11,4 +11,22 @@ spec:
 
 ---
 
+apiVersion: v1
+kind: Pod
+metadata:
+ name: pod-2
+spec:
+ affinity:
+  podAffinity:
+   requiredDuringSchedulingIgnoredDuringExecution:
+   - labelSelector:
+      matchExpressions:
+      - key: name
+        operator: In
+        values:
+        - affinitycheck
+ containers:   
+ - name: nginx
+   image: nginx
+
 
