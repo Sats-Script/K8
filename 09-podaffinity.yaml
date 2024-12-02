@@ -30,4 +30,26 @@ spec:
  - name: nginx
    image: nginx
 
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+ name: pod-3
+spec:
+ affinity:
+  podAntiAffinity:
+   requiredDuringSchedulingIgnoredDuringExecution:
+   - labelSelector:
+      matchExpressions:
+      - key: name
+        operator: In
+        values:
+        - affinitycheck
+     topologyKey: topology.kubernetes.io/zone
+ containers:   
+ - name: nginx
+   image: nginx
+
+
 
