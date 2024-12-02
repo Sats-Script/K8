@@ -3,9 +3,9 @@ kind: Pod
 metadata:
  name: pod-1
 spec:
-containers:   
-- name: nginx
-  image: nginx
+ containers:   
+ - name: nginx
+   image: nginx
 
 ---
 
