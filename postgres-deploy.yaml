@@ -19,11 +19,11 @@ spec:
     project: K8
     env: dev
     tier: db
- spec: 
-  containers:
-  - name: todo-db
-    image: 589820790160.dkr.ecr.us-east-1.amazonaws.com/postgres:v1
-    ports:
-    - containerPort: 5432
+  spec: 
+   containers:
+   - name: todo-db
+     image: 589820790160.dkr.ecr.us-east-1.amazonaws.com/postgres:v1
+     ports:
+     - containerPort: 5432
  
  
