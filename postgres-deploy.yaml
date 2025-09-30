@@ -2,10 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
    name: todo
-   namespace: project-K8
+   namespace: project-k8
    labels:
     env: dev
-    name: project-K8
+    name: project-k8
 spec:
  replicas: 2
  selector:
