@@ -3,7 +3,9 @@ kind: Deployment
 metadata:
  name: frontend
  namespace: project-k8
- env: dev
+ labels:
+  env: dev
+  name: project-k8
 spec:
  replicas: 3
  selector:
