@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+   name: todo
+   labels:
+    env: dev
+    name: project-K8
+spec:
+ replicas: 2
+  selector:
+   matchLabels:
+    project: K8
+    env: dev
+    tier: db
+template:
+ metadata:
+  lables: 
+   project: K8
+   env: dev
+   tier: db
+ spec: 
+  containers:
+  - name: todo-db
+    image: 589820790160.dkr.ecr.us-east-1.amazonaws.com/postgres:v1
+    ports:
+    - containerPort: 5432
+ 
+ 

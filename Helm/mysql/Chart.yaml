@@ -1,4 +1,0 @@
-apiVersion: v1
-name: mysql 
-version: v1
-description: "This is Helm demo"

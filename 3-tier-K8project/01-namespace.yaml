@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata: 
- name: smallproject-3
- labels:
-   project: minipro
-   environment: dev
