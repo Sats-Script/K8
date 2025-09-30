@@ -34,13 +34,14 @@ metadata:
  name: frontend-service
  namespace: project-k8
 spec:
- type: nodePort
+ type: NodePort
  selector:
    project: K8
    env: dev
    tier: frontend
  ports:
  - port: 80
-   targetPort: 8080
+   targetPort: 80
+   nodePort: 30001
   
     
