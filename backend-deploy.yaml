@@ -27,7 +27,7 @@ spec:
    - name: todo-backend
      image: 589820790160.dkr.ecr.us-east-1.amazonaws.com/backend:v1
      ports:
-     - port: 8080
+     - containerPort: 8080
 
 ---
 apiVersion: v1
