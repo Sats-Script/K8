@@ -26,8 +26,13 @@ spec:
    containers:
    - name: todo-backend
      image: 589820790160.dkr.ecr.us-east-1.amazonaws.com/backend:v1
+     envFrom:
+      - configMapRef:
+          name: pgconfig
+      - secretRef:
+          name: pgpassword
      ports:
-     - containerPort: 8080
+      - containerPort: 8080
 
 ---
 apiVersion: v1

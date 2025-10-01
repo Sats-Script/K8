@@ -1,0 +1,10 @@
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+ name: pgconfig
+ namespace: project-k8
+data:
+ PGHOST: postgres
+ PGPORT: "5432"
+ PGDATABASE: devdb
