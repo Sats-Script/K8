@@ -24,14 +24,13 @@ spec:
    #- name: ecr-secret 
    containers:
    - name: todo-db
-     image: postgres:v1
-     imagePullPolicy: Never
+     image: 589820790160.dkr.ecr.us-east-1.amazonaws.com/postgres:v1
+     #imagePullPolicy: Never
      envFrom:
       - configMapRef:
          name: dbconfig
       - secretRef:
          name: dbsecret
-     #image: 589820790160.dkr.ecr.us-east-1.amazonaws.com/postgres:v1
      ports:
      - containerPort: 5432
 
