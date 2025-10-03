@@ -26,8 +26,8 @@ spec:
    containers:
    - name: todo-backend
      image: backend:v1
-     imagePullPolicy: Never
-    # image: 589820790160.dkr.ecr.us-east-1.amazonaws.com/backend:v1
+    # imagePullPolicy: Never
+     image: 589820790160.dkr.ecr.us-east-1.amazonaws.com/backend:v1
      envFrom:
       - configMapRef:
           name: pgconfig
