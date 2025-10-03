@@ -21,11 +21,13 @@ spec:
      env: dev
      tier: backend
   spec:
-   imagePullSecrets:  #for practice used MINIKube so to pull images from our Private ECR we create a ecr-secret and passing from here to enable minikube to pull image
-   - name: ecr-secret 
+   #imagePullSecrets:  #for practice used MINIKube so to pull images from our Private ECR we create a ecr-secret and passing from here to enable minikube to pull image
+  # - name: ecr-secret 
    containers:
    - name: todo-backend
-     image: 589820790160.dkr.ecr.us-east-1.amazonaws.com/backend:v1
+     image: backend:v1
+     imagePullPolicy: Never
+    # image: 589820790160.dkr.ecr.us-east-1.amazonaws.com/backend:v1
      envFrom:
       - configMapRef:
           name: pgconfig
