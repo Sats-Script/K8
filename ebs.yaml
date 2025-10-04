@@ -1,5 +1,5 @@
-apiVersion: storage.k8.io/v1
-kind: storageClass
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
 metadata:
  name: 3tiervol
 reclaimPolicy: Retain

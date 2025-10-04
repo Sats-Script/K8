@@ -1,56 +1,78 @@
-apiVersion: apps/v1
-kind: Deployment
+# Headless Service (provides stable DNS for each StatefulSet pod)
+apiVersion: v1
+kind: Service
 metadata:
-   name: todo
-   namespace: project-k8
-   labels:
-    env: dev
-    name: project-k8
+  name: postgres-headless
+  namespace: project-k8
+  labels:
+    app: todo-db
 spec:
- replicas: 2
- selector:
-   matchLabels:
+  clusterIP: None          # headless -> no single ClusterIP; pod DNS entries are created
+  selector:
     project: K8
     env: dev
     tier: db
- template:
-  metadata:
-   labels: 
-    project: K8
-    env: dev
-    tier: db
-  spec:
-   #imagePullSecrets:  #for practice used MINIKube so to pull images from our Private ECR we create a ecr-secret and passing from here to enable minikube to pull image
-   #- name: ecr-secret 
-   containers:
-   - name: todo-db
-     image: 589820790160.dkr.ecr.us-east-1.amazonaws.com/postgres:v1
-     #imagePullPolicy: Never
-     volumeMounts:
-     - name: storage
-       mountPath: /var/lib/postgresql/data
-     envFrom:
-      - configMapRef:
-         name: dbconfig
-      - secretRef:
-         name: dbsecret
-     livenessProbe:
-        tcpSocket:
-         port: 5432
-        initialDelaySeconds: 5
-        periodSeconds: 10
-     readinessProbe:
-        tcpSocket:
-         port: 5432
-        initialDelaySeconds: 5
-        periodSeconds: 10
-     ports:
-     - containerPort: 5432
+  ports:
+    - port: 5432
+      name: postgres
+
+---
+# StatefulSet: one PVC per replica (volumeClaimTemplates)
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: todo-db
+  namespace: project-k8
+  labels:
+    app: todo-db
+spec:
+  serviceName: postgres-headless   # headless service name
+  replicas: 2
+  selector:
+    matchLabels:
+      project: K8
+      env: dev
+      tier: db
+  template:
+    metadata:
+      labels:
+        project: K8
+        env: dev
+        tier: db
+    spec:
+      containers:
+        - name: todo-db
+          image: 589820790160.dkr.ecr.us-east-1.amazonaws.com/postgres:v1
+          ports:
+            - containerPort: 5432
+              name: postgres
+          envFrom:
+            - configMapRef:
+                name: dbconfig
+            - secretRef:
+                name: dbsecret
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+          livenessProbe:
+            tcpSocket:
+              port: 5432
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 3
+          readinessProbe:
+            tcpSocket:
+              port: 5432
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 3
   volumes:
     - name: storage
       persistentVolumeClaim:
       claimName: 3tiervol
-
+  
 ---
 apiVersion: v1
 kind: Service
