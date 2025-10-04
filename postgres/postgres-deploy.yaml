@@ -68,10 +68,16 @@ spec:
             periodSeconds: 10
             timeoutSeconds: 2
             failureThreshold: 3
-      volumes:
-        - name: storage
-          persistentVolumeClaim:
-            claimName: dbpvc
+volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: 3tiervol
+      resources:
+        requests:
+          storage: 2Gi
+      
   
 ---
 apiVersion: v1
