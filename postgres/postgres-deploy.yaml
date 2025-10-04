@@ -27,7 +27,7 @@ metadata:
     app: todo-db
 spec:
   serviceName: postgres-headless   # headless service name
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       project: K8
