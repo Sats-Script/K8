@@ -56,7 +56,7 @@ spec:
               mountPath: /pgdata
           env:
             - name: PGDATA
-              value: /pgdata
+              value: /pgdata/postgresdata
 
           livenessProbe:
             tcpSocket:
