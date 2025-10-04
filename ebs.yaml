@@ -1,5 +1,5 @@
 apiVersion: storage.k8.io/v1
-kind: StorageClass
+kind: storageClass
 metadata:
  name: 3tiervol
 reclaimPolicy: Retain
@@ -12,6 +12,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
  name: dbpvc
+ namespace: project-k8 
 spec:
  storageClassName: 3tiervol
  accessModes:
