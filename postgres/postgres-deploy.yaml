@@ -34,6 +34,16 @@ spec:
          name: dbconfig
       - secretRef:
          name: dbsecret
+     livenessProbe:
+        tcpSocket:
+         port: 5432
+        initialDelaySeconds: 5
+        periodSeconds: 10
+     readinessProbe:
+        tcpSocket:
+         port: 5432
+        initialDelaySeconds: 5
+        periodSeconds: 10
      ports:
      - containerPort: 5432
   volumes:

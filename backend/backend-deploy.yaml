@@ -33,6 +33,16 @@ spec:
           name: pgconfig
       - secretRef:
           name: pgpassword
+     livenessProbe:
+        httpGet:
+         port: 8080
+        initialDelaySeconds: 5
+        periodSeconds: 10
+     readinessProbe:
+        httpGet:
+         port: 8080
+        initialDelaySeconds: 5
+        periodSeconds: 10
      ports:
       - containerPort: 8080
 
