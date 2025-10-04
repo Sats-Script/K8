@@ -52,7 +52,7 @@ spec:
             - secretRef:
                 name: dbsecret
           volumeMounts:
-            - name: data
+            - name: pgdata
               mountPath: /var/lib/postgresql/data/pgdata
           livenessProbe:
             tcpSocket:
