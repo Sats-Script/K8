@@ -71,7 +71,7 @@ spec:
   volumes:
     - name: storage
       persistentVolumeClaim:
-      claimName: 3tiervol
+      claimName: dbpvc
   
 ---
 apiVersion: v1
