@@ -68,10 +68,10 @@ spec:
             periodSeconds: 10
             timeoutSeconds: 2
             failureThreshold: 3
-  volumes:
-    - name: storage
-      persistentVolumeClaim:
-      claimName: dbpvc
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: dbpvc
   
 ---
 apiVersion: v1
