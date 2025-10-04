@@ -26,6 +26,9 @@ spec:
    - name: todo-db
      image: 589820790160.dkr.ecr.us-east-1.amazonaws.com/postgres:v1
      #imagePullPolicy: Never
+     volumeMounts:
+     - name: storage
+       mountPath: /var/lib/postgresql/data
      envFrom:
       - configMapRef:
          name: dbconfig
@@ -33,6 +36,10 @@ spec:
          name: dbsecret
      ports:
      - containerPort: 5432
+  volumes:
+    - name: storage
+      persistentVolumeClaim:
+      claimName: 3tiervol
 
 ---
 apiVersion: v1
