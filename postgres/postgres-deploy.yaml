@@ -68,13 +68,13 @@ spec:
             periodSeconds: 10
             timeoutSeconds: 2
             failureThreshold: 3
-volumeClaimTemplates:
-  - metadata:
-      name: data
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: 3tiervol
-      resources:
+  volumeClaimTemplates:
+    - metadata:
+       name: data
+      spec:
+       accessModes: [ "ReadWriteOnce" ]
+       storageClassName: 3tiervol
+       resources:
         requests:
           storage: 2Gi
       
