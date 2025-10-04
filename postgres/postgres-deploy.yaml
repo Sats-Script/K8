@@ -53,7 +53,7 @@ spec:
                 name: dbsecret
           volumeMounts:
             - name: data
-              mountPath: /var/lib/postgresql/data
+              mountPath: /var/lib/postgresql/data/pgdata
           livenessProbe:
             tcpSocket:
               port: 5432
