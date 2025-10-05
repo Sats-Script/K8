@@ -7,6 +7,6 @@ metadata:
 
 managedNodeGroups:
  - name: devops-nodes
-   instanceType: t3.small
+   instanceType: t3.micro
    desiredCapacity: 2
    spot: true  # must not used for Deployment environment

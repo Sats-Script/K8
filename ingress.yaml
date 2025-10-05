@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+ name: selfstore
+ namespace: project-k8
+ annotations:
+  alb.ingress.kubernetes.io/sheme: internet-facing
+  alb.ingress.kubernetes.io/target-type: ip 
+  alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+  alb.ingress.kubernetes.io/group.name: project-k8
+spec:
+ ingressClassName: alb
+ rules:
+ - host: "*.charvikyuktha.store"
+   http:
+    paths:
+    - pathType: Prefix
+      path: "/"
+      backend:
+       service:
+        name: frontend-svc
+        port: 
+         number: 80

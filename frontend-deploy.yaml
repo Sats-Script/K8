@@ -26,6 +26,16 @@ spec:
    containers:
    - name: frontend
      image: 589820790160.dkr.ecr.us-east-1.amazonaws.com/frontend:v1
+     livenessProbe:
+        httpGet:
+         port: 80
+        initialDelaySeconds: 5
+        periodSeconds: 10
+     readinessProbe:
+        httpGet:
+         port: 80
+        initialDelaySeconds: 5
+        periodSeconds: 10
      ports:
      - containerPort: 80
 
@@ -33,7 +43,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
- name: frontend
+ name: frontend-svc
  namespace: project-k8
 spec:
  type: NodePort
