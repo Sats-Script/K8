@@ -2,11 +2,11 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
- name: eKs-cluster
+ name: my-cluster
  region: us-east-1
 
 managedNodeGroups:
- - name: eKs-nodes
+ - name: my-nodes
    instanceType: m5.large
    desiredCapacity: 2
    spot: true  # must not used for Deployment environment
