@@ -9,4 +9,4 @@ managedNodeGroups:
  - name: my-nodes
    instanceType: m5.large
    desiredCapacity: 2
-   spot: true  # must not used for Deployment environment
+   spot: false  # must not used for Deployment environment
