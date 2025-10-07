@@ -3,10 +3,10 @@ kind: ClusterConfig
 
 metadata:
  name: my-cluster
- region: us-east-1
+ region: ap-south-1
 
 managedNodeGroups:
  - name: my-nodes
-   instanceType: m5.medium
+   instanceType: t4.large
    desiredCapacity: 2
    spot: true  # must not used for Deployment environment
