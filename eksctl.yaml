@@ -7,6 +7,6 @@ metadata:
 
 managedNodeGroups:
  - name: my-nodes
-   instanceType: t4.medium
+   instanceType: m5.medium
    desiredCapacity: 2
    spot: true  # must not used for Deployment environment
